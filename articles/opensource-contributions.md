@@ -40,7 +40,7 @@ This crate provides bindings for the GSL (GNU Scientific library). With the new 
 
 ### (libc) Add new structures, constants and types around processor API for macOS
 
-The [libc](https://github.com/rust-lang/libc/) project provides FFI (Foreign Function Interface) bindings to platforms' system libraries. It's one of the most used crate used in the Rust ecosystem because as soon as you want to write low-level code, it's very likely that you'll need it.
+The [libc](https://github.com/rust-lang/libc/) project provides FFI (Foreign Function Interface) bindings to platforms' system libraries. It's one of the most used crate in the Rust ecosystem because as soon as you want to write low-level code, it's very likely that you'll need it.
 
 This [PR](https://github.com/rust-lang/libc/pull/2127) provided the following new items:
  * processor_cpu_load_info
