@@ -233,3 +233,7 @@ This is a [new crate](https://github.com/yijunyu/rust2pickle) to create Pickle o
 ### (rustdoc) Don't mark "safe" intrinsics as unsafe
 
 Some rust intrinsics are safe to be used. This [pull request](https://github.com/rust-lang/rust/pull/86327) propagates this change to rustdoc.
+
+### (rustc/infra) Enforce error codes checks
+
+The Rust compiler uses error codes (which look like "E0111") and provide an explanation alongside them which can be seen using `rustc --explain E0111`. However, as time passes, some error codes are not used anymore and are often not cleaned up correctly. This [pull request](https://github.com/rust-lang/rust/pull/86137) ensures that they are cleaned up appropriately if they are removed by sending an error when the `tidy` check is run.
