@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-md-row flex-items-center flex-md-items-center">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h1 class="f00-light text-center mb-4 mt-4">Huawei ❤️ Rust</h1>
+        <div class="markdown-body mb-4">
+          {{ content }}
+        </div>
+
+        <ul class="menu">
+          {% for post in site.posts %}
+            <li class="menu-item"><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+
+        <div class="Subhead mt-4">
+          <h2 class="Subhead-heading">Sponsored Rust contributions</h2>
+          <div class="Subhead-description">
+            Developers working on these efforts in the upstream Rust project are being sponsored by Huawei
+          </div>
+        </div>
+        {% for contrib in site.contributions %}
+          <div class="Box mb-3">
+            <div class="Box-body">
+            <h3 class="f3-light mb-2">
+              {{ contrib.name }}
+              <span class="Label">{{ contrib.area }}</span>
+              <span class="Label Label--{{ contrib.status.css_class }}">{{ contrib.status.label }}</span>
+            </h3>
+            <div class="markdown-body mb-3">{{ contrib.content }}</div>
+            {% for button in contrib.buttons %}
+              <a class="btn mb-1" type="button" href="{{ button.link }}">{{ button.label }}</a>
+            {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+
+        <div class="Subhead mt-4">
+          <h2 class="Subhead-heading">Rust Projects</h2>
+          <div class="Subhead-description">
+            Other Rust projects being worked on by the Trusted Programming team
+          </div>
+        </div>
+        {% for project in site.projects %}
+          <div class="Box mb-3">
+            <div class="Box-body">
+            <h3 class="f3-light mb-2">
+              {{ project.name }}
+              <span class="Label">{{ project.area }}</span>
+              <span class="Label Label--{{ project.status.css_class }}">{{ project.status.label }}</span>
+            </h3>
+            <div class="markdown-body mb-3">{{ project.content }}</div>
+            {% for button in project.buttons %}
+              <a class="btn mb-1" type="button" href="{{ button.link }}">{{ button.label }}</a>
+            {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+
+        <div class="Subhead mt-4">
+          <h2 class="Subhead-heading">Team members</h2>
+          <div class="Subhead-description">Employees and consultants sponsored by Huawei to work on Rust:</div>
+        </div>
+        {% assign internal_team_members = site.team | where: "external", false %}
+        {% for member in internal_team_members %}
+          <div class="Box mb-3">
+            <div class="Box-body">
+              <div class="d-flex flex-column flex-md-row flex-items-center flex-md-items-center">
+                <div class="col-1 d-flex flex-items-center flex-items-center flex-md-items-start">
+                  <a href="https://github.com/{{ member.github }}">
+                    <img class="avatar" alt="{{ member.github }}" src="https://github.com/{{ member.github }}.png?v=3&s=96" width="72" height="72" />
+                  </a>
+                </div>
+                <div class="col-12 col-md-10 d-flex flex-column flex-justify-center flex-items-center flex-md-items-start pl-md-4">
+                  <a class="Link--primary" href="https://github.com/{{ member.github }}">
+                    <h3 class="f3-light mb-1">{{ member.name }}</h3>
+                  </a>
+                  <p class="text-italic">
+                    {% for role in member.roles %}
+                      {% if role.link %}
+                        <a class="Link--primary" href="{{ role.link }}">{{ role.label }}</a>
+                      {% else %}
+                        {{ role.label }}
+                      {% endif %}
+                      <br/>
+                    {% endfor %}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+	  <div class="Subhead-description"> <a href="https://apply.workable.com/huawei-ireland/j/B30040AA12/">We are recruiting Principal RUST Programming Researchers</a> and <a href="https://apply.workable.com/huawei-ireland/j/B30040AA12/">Software Engineers</a> at Trustworthy and Open Source Software Engineering in Dublin, Ireland, Europe.</div>
+
+
+        <div class="Subhead mt-4">
+          <h2 class="Subhead-heading">Sponsored Research Labs</h2>
+          <div class="Subhead-description">Research labs sponsored by Huawei to work on Rust</div>
+        </div>
+        {% for lab in site.research_labs %}
+          <div class="Box mb-3">
+            <div class="Box-body">
+              <div class="d-flex flex-column flex-md-row flex-items-center flex-md-items-center">
+                <div class="col-1 d-flex flex-items-center flex-items-center flex-md-items-start">
+                  <a href="{{ lab.link }}">
+                    <img class="avatar" alt="{{ lab.link }}" src="{{ lab.logo }}" width="72" height="72" />
+                  </a>
+                </div>
+                <div class="col-12 col-md-10 d-flex flex-column flex-justify-center flex-items-center flex-md-items-start pl-md-4">
+                  <a class="Link--primary" href="{{ lab.link }}">
+                    <h3 class="f3-light pb-1">{{ lab.name }}</h3>
+                    <h4 class="lead text-small mb-2">{{ lab.institution }}</h4>
+                  </a>
+                  <p>
+                    {% if lab.areas %}
+                      <span class="text-semibold">Research Areas:</span>
+                      {% for area in lab.areas %} 
+                        {{ area }}{% if forloop.last %}{% else %},{% endif %}
+                      {% endfor %}
+                      <br/>
+                    {% endif %}
+                    {% if lab.opportunities %}
+                      <span class="text-semibold">Opportunities:</span>
+                      {% for opp in lab.opportunities %}
+                        <a href="{{ opp.link }}">{{ opp.label }}</a>
+                        {% if forloop.last %}{% else %},{% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+        <p class="color-fg-muted text-center text-italic mb-1 mt-4">
+          © Trusted Programming Team, Huawei
+        <p>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </body>
+</html>
