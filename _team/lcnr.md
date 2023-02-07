@@ -1,5 +1,5 @@
 ---
-name: Bastian Kauschke
+name: lcnr
 external: false
 github: lcnr
 roles:
