@@ -1,0 +1,19 @@
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  white-space: normal;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.filter label {
+  cursor: pointer;
+}

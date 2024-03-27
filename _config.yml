@@ -1,0 +1,22 @@
+title: Trusted Programming
+description: >- 
+  As a leading telecommunications company on a global scale, Huawei is
+  dedicated to the development of dependable software systems. To achieve this
+  goal, our team of developers relies heavily on the support provided by Rust
+  programming language. As a founding member of the Rust Foundation, Huawei is
+  fully committed to the growth and prosperity of the Rust community. To
+  demonstrate our commitment, we have created automated tools to transform C code
+  into a safer Rust code, and are continuously contributing to the improvement
+  and expansion of Rust's features. 
+baseurl: ""
+url: "https://trusted-programming.github.io"
+
+collections:
+  contributions:
+    output: false
+  projects:
+    output: false
+  team:
+    output: false
+  research_labs:
+    output: false

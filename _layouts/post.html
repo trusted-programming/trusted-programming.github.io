@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-md-row flex-items-center flex-md-items-center">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h1 class="f00-light text-center mb-4 mt-4"><a class="Link--primary" href="/">Huawei ❤️ Rust</a></h1>
+        <h1 class="f1-light mb-2">{{ page.title }}</h1>
+
+        <div class="mb-6">
+          {% for author in page.authors %}
+            {% assign member = site.team | find: "github", author %}
+            <div class="d-flex flex-column flex-md-row flex-items-center flex-md-items-center pb-2">
+              <div class="col-1 d-flex flex-items-center flex-items-center flex-md-items-start">
+                <a href="https://github.com/{{ author }}">
+                  <img class="avatar" alt="{{ author }}" src="https://github.com/{{ author }}.png?v=3&s=96" width="72" height="72" />
+                </a>
+              </div>
+              <div class="col-12 col-md-10 d-flex flex-column flex-justify-center flex-items-center flex-md-items-start pl-md-4">
+                <a class="Link--primary text-semibold" href="https://github.com/{{ author }}">
+                  {{ member.name }}
+                </a>
+                <p class="text-italic">
+                  {% for role in member.roles %}
+                    {% if role.link %}
+                      <a class="Link--primary" href="{{ role.link }}">{{ role.label }}</a>
+                    {% else %}
+                      {{ role.label }}
+                    {% endif %}
+                    <br/>
+                  {% endfor %}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="markdown-body">
+          {{ content }}
+        </div>
+
+        <p class="color-fg-muted text-center text-italic mb-1 mt-4">
+          © Trusted Programming Team, Huawei
+        <p>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+videos/2024-03-26/huawei_and_rust.mp4 filter=lfs diff=lfs merge=lfs -text
