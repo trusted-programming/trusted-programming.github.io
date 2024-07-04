@@ -2,8 +2,10 @@
 layout: post
 title: Reflections on RustConf 2022
 authors:
-  - davidtwco
+  - yijunyu
 ---
+*Originally authored by David Wood.*
+
 Despite being on Rust’s compiler team, I have never attended a RustConf –
 Rust’s flagship yearly conference – so I jumped at the chance to attend this
 years in Portland, Oregon on behalf of Huawei’s Trusted Programming Lab. Rust
